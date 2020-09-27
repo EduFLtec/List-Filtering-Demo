@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <title>List Filtering Page Demo</title>
+  </head>
+  <body>
+      <h1>The English Adventure Table Quest Menu</h1>
+      <h2>What is your learning quest?</h2>
+      <div class='search-container'><input id='search-bar' type='text'></input></div>
+      <div class='quest-container'>
+        <div class='quest'>The Warrior's Welcome</div> 
+        <div class='quest'>Powerful Preferences</div>
+        <div class='quest'>Counting at Court</div>
+        <div class='quest'>The Direction of Danger</div>
+        <div class='quest'>Shopping in the Shadows</div>
+        <div class='quest'>Doing the Un-Can-ny</div>
+        <div class='quest'>Tales of Yesterday...and Last Week</div>
+        <div class='quest'>Fortunes of the Future</div>
+      </div>
+  <script>
+    let questList = [];
+    let quests = document.getElementsByClassName('quest');
+    for (let i = 0; i < quests.length; i++) {
+      let qstName = quests[i].innerHTML;
+      questList.push(qstName);
+    }
+
+    let searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('keyup', function(event) {
+      let text = searchBar.value;
+      for (let i = 0; i < quests.length; i++) {
+        if (questList[i].indexOf(text) < 0) {
+        quests[i].style.display = 'None';
+      } else {
+        quests[i].style.display = 'Block';
+       }   
+
+    }
+    
+    });
+
+  </script>    
+ </body>
+</html>
